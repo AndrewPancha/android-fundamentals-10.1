@@ -3,12 +3,15 @@ package com.example.roomwords;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "word_table")
 public class Word {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     @NonNull
     @ColumnInfo(name = "word")
     private String mWord;
@@ -17,7 +20,13 @@ public class Word {
         return mWord;
     }
 
-    public Word(@NonNull String mWord) {
+    public int getId() {
+        return id;
+    }
+
+    @Ignore
+    public Word(int id, @NonNull String mWord) {
+        this.id = id;
         this.mWord = mWord;
     }
 }

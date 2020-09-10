@@ -1,9 +1,11 @@
 package com.example.roomwords;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -49,6 +51,10 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         return 0;
     }
 
+    public Word getWordAtPosition(int position) {
+        return mWords.get(position);
+    }
+
     class WordViewHolder extends RecyclerView.ViewHolder {
         private TextView wordItemView;
 
@@ -56,5 +62,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
             super(itemView);
             wordItemView = itemView.findViewById(R.id.textView);
         }
+
+
     }
 }
